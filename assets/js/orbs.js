@@ -22,36 +22,36 @@ let temp = [...Array(255).keys()];
 let avg;
 
 function makeCircles(x_pos, y_pos){   
-    //let tempC = 255;
-    //let c = color(tempC);
+    let tempC = 255;
+    let c = color(tempC);
     let sz = 8;
-    //let s = random(5, 20);
+    let s = random(5, 20);
     particles.push({
-        //temp: tempC,
+        temp: tempC,
         x: x_pos,
         y: y_pos,
-        //c: c,
+        c: c,
         sz: sz, 
-        //speed: s
+        speed: s
     }) 
 }
 function moveCircles(b, i) {
-    // b.sz += (b.speed);
-    // b.temp += (b.speed * 4);
-    // b.c = color(b.temp);
-    //if ( (b.sz > 15 ) ) {
+    b.sz += (b.speed);
+    b.temp -= (b.speed * 4);
+    b.c = color(b.temp);
+    if ( (b.sz > 50 ) ) {
         particles.splice(i, 1)
-    //}
+    }
 }
 function drawCircles(b){
     //noStroke();
-    //stroke(b.c);
-    //noFill();
+    stroke(b.c);
+    noFill();
     //fill(255);
-    //ellipse (b.x, b.y, b.sz, b.sz);
-    stroke(255)
-    strokeWeight(b.sz);
-    point(b.x,b.y);
+    ellipse (b.x, b.y, b.sz, b.sz);
+    // stroke(255)
+    // strokeWeight(b.sz);
+    // point(b.x,b.y);
 }
 
 function draw() {
