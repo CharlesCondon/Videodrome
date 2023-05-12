@@ -10,12 +10,11 @@ let prev;
 let particles = [];
 
 function setup() {
-    //noCanvas();
-    createCanvas(640,480);
+    createCanvas(windowWidth, windowHeight*.91);
     video = createCapture(VIDEO);
     video.size(width / scaler, height / scaler);
     prev = createImage(video.width, video.height);
-    // video.hide();
+    video.hide();
 }
 
 let temp = [...Array(255).keys()];
@@ -25,7 +24,7 @@ function makeCircles(x_pos, y_pos){
     let tempC = 255;
     let c = color(tempC);
     let sz = 8;
-    let s = random(5, 20);
+    let s = random(1, 10);
     particles.push({
         temp: tempC,
         x: x_pos,
@@ -65,7 +64,7 @@ function draw() {
     // background('rgba(0,0,0, 0.25)');
     for (let j = 0; j < video.height; j++) {
         for (let i = 0; i < video.width; i++) {
-            const pixelIndex = ( (video.width - i + 1) + (j * video.width)) * 4;
+            const pixelIndex = ( (video.width - i - 1) + (j * video.width)) * 4;
 
             let pr = prev.pixels[pixelIndex + 0];
             let pg = prev.pixels[pixelIndex + 1];
