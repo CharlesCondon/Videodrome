@@ -45,24 +45,47 @@ h1 {
 }
 
 #exampleCont {
-    margin: 4vw;
-    border: 2px solid red;
+    margin: 2vw;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(2, 300px);
+    row-gap: 40px;
+    column-gap: 100px;
     grid-auto-rows: auto;
+    justify-content: center;
 }
 
-.example {
-    min-height: 100px;
-    background-color: rgb(30, 30, 30);
-}
-.example:hover {
-    background-color: rgb(100, 100, 100);
+.thumbnail {
+    width: 275px;
+    height: 275px;
+    margin-bottom: 10px;
+    border: 5px double white;
 }
 
-@media only screen and (max-width: 600px) {
+a {
+    text-decoration: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+a:active {
+    color: white;
+}
+a:visited {
+    color: white;
+}
+
+
+@media only screen and (max-width: 700px) {
     #exampleCont {
         grid-template-columns: repeat(1, 1fr);
+        row-gap: 40px;
+        column-gap: 0px;
+    }
+    .example {
+        margin: auto;
+    }
+    .thumbnail {
+        width: 275px;
+        height: 275px;
     }
 }

@@ -53,6 +53,11 @@ function drawCircles(b){
     // point(b.x,b.y);
 }
 
+function distSqr( x1, y1, z1, x2, y2, z2 ) {
+    let d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) + (z2-z1)*(z2-z1);
+    return d;
+}
+
 function draw() {
     video.loadPixels();
     prev.loadPixels();
@@ -76,9 +81,9 @@ function draw() {
             const b = video.pixels[pixelIndex + 2];
             avg = (r + g + b) / 3;
 
-            var diff = dist(r, g, b, pr, pg, pb);
+            var diff = distSqr(r, g, b, pr, pg, pb);
             
-			if (diff<50){
+			if (diff<900){
                 //fill(0);
                 //circle(i * scaler, j * scaler, scaler);
             } else {
